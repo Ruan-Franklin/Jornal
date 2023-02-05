@@ -20,7 +20,7 @@ class Artigo(models.Model):
     descricao = models.TextField()
     #O campo autor é uma chave estrangeira para a classe autor, isso significa que o artigo tem um único autor.
     #Com on_delete cascade, ao excluir um registro em uma tabela, um registro relacionado em outra tabela é automaticamente excluído
-    autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
+    autor = models.ForeignKey(Autor, null=True, on_delete=models.CASCADE)
     data_pub = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
