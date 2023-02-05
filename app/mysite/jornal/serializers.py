@@ -14,7 +14,6 @@ class AutorSerializer(serializers.ModelSerializer):
 
 class ArtigoSerializer(serializers.ModelSerializer):
     '''Classe para especificação '''
-    autor = AutorSerializer(read_only=True)
     class Meta:
         model = Artigo
         fields = '__all__'
