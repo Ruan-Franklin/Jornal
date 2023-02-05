@@ -1,4 +1,6 @@
 from rest_framework import viewsets
+from rest_framework import status
+from rest_framework.response import Response
 from .models import Autor, Artigo
 from .serializers import AutorSerializer, ArtigoSerializer
 '''
@@ -10,8 +12,26 @@ class AutorViewSet(viewsets.ModelViewSet):
     queryset = Autor.objects.all()
     serializer_class = AutorSerializer
 
+    def create(self,request, *args, **kwargs):
+        '''Método para lidar com solicitações de post'''
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+
 class ArtigoViewSet(viewsets.ModelViewSet):
     queryset = Artigo.objects.all()
     serializer_class = ArtigoSerializer
+
+    def create(self, request, *args,**kwargs):
+        '''Método para lidar com solicitações de post'''
+        serializer=self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers=self.get_sucess_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        
 
 
