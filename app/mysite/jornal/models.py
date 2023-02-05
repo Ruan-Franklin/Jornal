@@ -9,6 +9,8 @@ class Autor(models.Model):
     '''Classe de modelo com os campos de um autor de um artigo.'''
     nome = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
+    imagem = models.ImageField(upload_to='autores/', null=True, blank=True)
+
 
     def __str__(self):
                 #O método construtor __str__ retorna uma representação de string de cada modelo, que é usado na interface de administração do DJango e e em outros lugares.
