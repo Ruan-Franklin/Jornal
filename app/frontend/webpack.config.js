@@ -1,4 +1,3 @@
-// webpack.config.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
@@ -7,6 +6,7 @@ module.exports = (env) => {
   const API_URL = process.env.REACT_APP_API_URL;
   
   return {
+    mode: 'development',
     entry: './src/index.js',
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -24,7 +24,10 @@ module.exports = (env) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: 'src/index.html',
+        template: './dist/index.html',
+      }),
+      new webpack.DefinePlugin({
+        'process.env.REACT_APP_API_URL': JSON.stringify(API_URL),
       }),
     ],
     module: {
@@ -41,10 +44,5 @@ module.exports = (env) => {
     resolve: {
       extensions: ['.js', '.jsx'],
     },
-    plugins: [
-      new webpack.DefinePlugin({
-        'process.env.REACT_APP_API_URL': JSON.stringify(API_URL),
-      }),
-    ],
   };
 };
