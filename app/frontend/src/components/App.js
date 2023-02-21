@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('http://localhost:8000/artigos/');
+        const response = await axios.get('https://8000-ruanfranklin-jornal-ltpeils3gbd.ws-us87.gitpod.io/api/artigos/');
         setArtigos(response.data);
       } catch (error) {
         console.error(error);
@@ -28,7 +28,7 @@ function App() {
     const artigoSerializer = new ArtigoSerializer();
     const serializedData = artigoSerializer.serialize(artigo);
     try {
-      const response = await axios.post('http://localhost:8000/artigos/', serializedData);
+      const response = await axios.post('https://8000-ruanfranklin-jornal-ltpeils3gbd.ws-us87.gitpod.io/api/artigos/', serializedData);
       const newArtigo = response.data;
       setArtigos([...artigos, newArtigo]);
       setArtigo({

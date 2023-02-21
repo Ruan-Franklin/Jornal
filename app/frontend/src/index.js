@@ -2,4 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  ReactDOM.render(<App />, rootElement);
+} else {
+  console.error('Element with ID "root" not found on the page');
+}
