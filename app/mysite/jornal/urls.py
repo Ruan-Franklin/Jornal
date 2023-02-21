@@ -12,3 +12,4 @@ router.register(r'artigos', ArtigoViewSet)
 urlpatterns = [
     path('', include(router.urls)),
 ]
+
