@@ -1,5 +1,0 @@
-image:
-  file: .gitpod.Dockerfile
-
-env:
-  API_URL: "http://localhost:8000"
