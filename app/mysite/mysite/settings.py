@@ -54,7 +54,8 @@ REST_FRAMEWORK = {
 #Desbloqueando a porta 3000 para o React
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    'https://3000-ruanfranklin-jornal-ltpeils3gbd.ws-us87.gitpod.io'
+    "https://3000-ruanfranklin-jornal-ltpeils3gbd.ws-us89.gitpod.io"
+
 
 
     
@@ -139,7 +140,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [    '/workspace/Jornal/app/frontend/dist',    '/workspace/Jornal/app/frontend/src',    '/workspace/Jornal/app/frontend/src/components',]
+#STATICFILES_DIRS = [    '/workspace/Jornal/app/frontend/dist',    '/workspace/Jornal/app/frontend/src',    '/workspace/Jornal/app/frontend/src/components',]
 
 
 
