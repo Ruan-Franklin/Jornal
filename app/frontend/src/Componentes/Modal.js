@@ -23,13 +23,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Artigos</h1>
       <ul>
         {artigos.map((artigo) => (
           <li key={artigo.id}>
             <h2>{artigo.titulo}</h2>
             <p>{artigo.descricao}</p>
-            <p>Autor: {artigo.autor.nome}</p>
+            <p>Autor: {artigo.nome_autor}</p>
           </li>
         ))}
       </ul>
@@ -47,7 +46,7 @@ function App() {
                   <li key={artigo.id} className="artigo">
                     <h2>{artigo.titulo}</h2>
                     <p>{artigo.descricao}</p>
-                    <p>Autor: {artigo.autor.nome}</p>
+                    <p>Autor: {artigo.nome_autor}</p>
                   </li>
                 ))}
               </ul>
