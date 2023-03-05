@@ -1,0 +1,28 @@
+import React, { useState, useEffect } from 'react';
+
+function ListagemArtigos() {
+  const [artigos, setArtigos] = useState([]);
+
+  useEffect(() => {
+    fetch('https://8000-ruanfranklin-jornal-ltpeils3gbd.ws-us89.gitpod.io/api/artigos/')
+      .then(response => response.json())
+      .then(data => setArtigos(data));
+  }, []);
+
+  return (
+    <div>
+      <h1>Lista de artigos</h1>
+      <ul>
+        {artigos.map(artigo => (
+          <li key={artigo.id}>
+            <h2>{artigo.titulo}</h2>
+            <p>{artigo.descricao}</p>
+            <p>{artigo.nome_autor}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default ListagemArtigos;
