@@ -13,10 +13,21 @@ class AutorSerializer(serializers.ModelSerializer):
 #All inclui todos os campos do modelo na serialização
 
 class ArtigoSerializer(serializers.ModelSerializer):
+    #source indica que o campo "nome_autor" é derivado do campo "autor.nome"
+    nome_autor = serializers.CharField(source='autor.nome')
     '''Classe para especificação '''
     class Meta:
         model = Artigo
-        fields = '__all__'
+        fields = ['id', 'titulo', 'descricao', 'data_pub', 'autor','nome_autor']
 
 #Classe meta específica o modelo a ser usado e os campos a serem incluídos 
-#All inclui todos os campos do modelo na serialização
+
+# to_representation é um método que converte objetos Python em representações nativas do Python
+# As representações nativas do Python podem facilmente ser convertidas em JSON, XML ou outros formatos.
+
+#Nesse caso, iremos adicionar o campo "nome" do autor no dicionário que representa o artigo
+
+def to_representation(self, instance):
+    rep = super().to_representation(instance)
+    rep['nome_autor'] = instance.autor.nome
+    return rep 
