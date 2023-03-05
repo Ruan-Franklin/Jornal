@@ -25,7 +25,7 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-```
+
 Em outra janela do terminal, execute o servidor do frontend com o seguinte comando:
 ```
 npm start
