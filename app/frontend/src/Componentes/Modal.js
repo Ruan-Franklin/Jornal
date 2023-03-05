@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Routes, Route, BrowserRouter as Router, useNavigate } from 'react-router-dom';
 
-function App() {
+function Modal() {
   const [artigos, setArtigos] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchArtigos() {
@@ -19,6 +21,10 @@ function App() {
 
   function handleCloseModal() {
     setModalOpen(false);
+  }
+
+  function handleRedirect() {
+    navigate('/outrapagina');
   }
 
   return (
@@ -50,11 +56,23 @@ function App() {
                   </li>
                 ))}
               </ul>
+              <button onClick={handleRedirect}>Ir para outra página</button>
             </div>
           </div>
         </div>
       )}
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Modal />} />
+        <Route path="/outrapagina" element={<h1>Outra Página</h1>} />
+      </Routes>
+    </Router>
   );
 }
 
