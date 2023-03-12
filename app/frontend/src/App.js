@@ -12,13 +12,21 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">
+                <span className="material-icons">home</span>
+              </Link>
             </li>
             <li>
-              <Link to="/cadastro">Cadastrar Artigo</Link>
+              <Link to="/cadastro">
+                <span className="material-icons">create</span>
+                Cadastrar Artigo
+              </Link>
             </li>
             <li>
-              <Link to="/artigos">Listagem de Artigos</Link>
+              <Link to="/artigos">
+                <span className="material-icons">list</span>
+                Listagem de Artigos
+              </Link>
             </li>
           </ul>
         </nav>

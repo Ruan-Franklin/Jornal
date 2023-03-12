@@ -4,7 +4,7 @@ function ListagemArtigos() {
   const [artigos, setArtigos] = useState([]);
 
   useEffect(() => {
-    fetch('https://8000-ruanfranklin-jornal-ltpeils3gbd.ws-us89.gitpod.io/api/artigos/')
+    fetch('https://8000-ruanfranklin-jornal-ltpeils3gbd.ws-us90.gitpod.io/api/artigos/')
       .then(response => response.json())
       .then(data => setArtigos(data));
   }, []);

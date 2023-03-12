@@ -54,7 +54,7 @@ REST_FRAMEWORK = {
 #Desbloqueando a porta 3000 para o React
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    "https://3000-ruanfranklin-jornal-ltpeils3gbd.ws-us89.gitpod.io"
+    "https://3000-ruanfranklin-jornal-ltpeils3gbd.ws-us90.gitpod.io"
 
 
 
