@@ -1,0 +1,32 @@
+.listagem-artigos {
+    background-color: #121212;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .listagem-artigos h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  
+  .listagem-artigos ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .listagem-artigos li {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #fff;
+  }
+  
+  .listagem-artigos h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .listagem-artigos p {
+    font-size: 16px;
+    margin: 0;
+  }
+  

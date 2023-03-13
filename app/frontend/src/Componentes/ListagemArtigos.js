@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './listagem-artigos.css';
 
 function ListagemArtigos() {
   const [artigos, setArtigos] = useState([]);
@@ -10,7 +11,7 @@ function ListagemArtigos() {
   }, []);
 
   return (
-    <div>
+    <div className="listagem-artigos">
       <h1>Lista de artigos</h1>
       <ul>
         {artigos.map(artigo => (
