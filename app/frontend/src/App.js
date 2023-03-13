@@ -13,19 +13,25 @@ function App() {
           <ul>
             <li>
               <Link to="/">
-                <span className="material-icons">home</span>
+                <button className="btn-nav">
+                  <span className="material-icons">home</span>
+                </button>
               </Link>
             </li>
             <li>
               <Link to="/cadastro" className="cadastro-btn">
-                <span className="material-icons">create</span>
-                <span>Cadastrar Artigo</span>
+                <button className="btn-nav">
+                  <span className="material-icons">create</span>
+                  <span>Cadastrar Artigo</span>
+                </button>
               </Link>
             </li>
             <li>
               <Link to="/artigos">
-                <span className="material-icons">list</span>
-                <span>Listagem de Artigos</span>
+                <button className="btn-nav">
+                  <span className="material-icons">list</span>
+                  <span>Listagem de Artigos</span>
+                </button>
               </Link>
             </li>
           </ul>
