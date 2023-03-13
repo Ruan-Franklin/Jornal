@@ -10,6 +10,13 @@ body {
   padding: 20px;
 }
 
+.material-icons {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+
 h1 {
   font-size: 36px;
   margin-bottom: 30px;
@@ -73,4 +80,58 @@ h1 {
 .artigo p {
   font-size: 16px;
   margin: 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+nav li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.menu-image img {
+  max-width: 400px;
+  height:auto;
+  width: 100%;
+}
+
+.cadastro-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.cadastro-btn:hover {
+  background-color: #0069d9;
 }
