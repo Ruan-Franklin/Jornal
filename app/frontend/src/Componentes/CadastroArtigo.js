@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './CadastroArtigo.css';
 
 function CadastroArtigo() {
   const [titulo, setTitulo] = useState('');
@@ -23,25 +24,22 @@ function CadastroArtigo() {
   }
 
   return (
-    <div>
+    <div className="cadastro-artigo">
       <h1>Cadastro de Artigos</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Título:
-          <input type="text" value={titulo} onChange={handleTituloChange} />
-        </label>
-        <br />
-        <label>
-          Descrição:
-          <textarea value={descricao} onChange={handleDescricaoChange} />
-        </label>
-        <br />
-        <label>
-          Nome do Autor:
-          <input type="text" value={nomeAutor} onChange={handleNomeAutorChange} />
-        </label>
-        <br />
-        <button type="submit">Salvar</button>
+        <div className="form-group">
+          <label htmlFor="titulo">Título:</label>
+          <input type="text" id="titulo" value={titulo} onChange={handleTituloChange} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="descricao">Descrição:</label>
+          <textarea id="descricao" value={descricao} onChange={handleDescricaoChange} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="nomeAutor">Nome do Autor:</label>
+          <input type="text" id="nomeAutor" value={nomeAutor} onChange={handleNomeAutorChange} />
+        </div>
+        <button type="submit" className="btn-salvar">Salvar</button>
       </form>
     </div>
   );
