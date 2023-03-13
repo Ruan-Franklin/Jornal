@@ -17,18 +17,21 @@ function App() {
               </Link>
             </li>
             <li>
-              <Link to="/cadastro">
+              <Link to="/cadastro" className="cadastro-btn">
                 <span className="material-icons">create</span>
-                Cadastrar Artigo
+                <span>Cadastrar Artigo</span>
               </Link>
             </li>
             <li>
               <Link to="/artigos">
                 <span className="material-icons">list</span>
-                Listagem de Artigos
+                <span>Listagem de Artigos</span>
               </Link>
             </li>
           </ul>
+          <div className="menu-image">
+            <img src={process.env.PUBLIC_URL + '/dark-mode-black-late-night-work-inspiration.jpg'} alt="Notebook" />
+          </div>
         </nav>
 
         <Routes>
