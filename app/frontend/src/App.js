@@ -30,7 +30,7 @@ function App() {
             </li>
           </ul>
           <div className="menu-image">
-            <img src={process.env.PUBLIC_URL + '/dark-mode-black-late-night-work-inspiration.jpg'} alt="Notebook" />
+            <img src={process.env.PUBLIC_URL + '/dark-mode-black-late-night-work-inspiration.png'} alt="Notebook" />
           </div>
         </nav>
 

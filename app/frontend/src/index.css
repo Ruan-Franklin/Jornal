@@ -113,7 +113,8 @@ nav li a {
 }
 
 .menu-image img {
-  max-width: 800px;
+  max-width: 400px;
+  height:auto;
   width: 100%;
 }
 
