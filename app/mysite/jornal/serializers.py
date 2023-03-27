@@ -16,12 +16,13 @@ class AutorSerializer(serializers.ModelSerializer):
 
 class ArtigoSerializer(serializers.ModelSerializer):
     #source indica que o campo "nome_autor" é derivado do campo "autor.nome"
+    autor_email = serializers.EmailField(source='autor.email', read_only=True)
     autor = AutorSerializer(read_only=True)
     nome_autor = serializers.CharField(source='autor.nome')
     '''Classe para especificação '''
     class Meta:
         model = Artigo
-        fields = ['id', 'titulo', 'descricao', 'data_pub', 'autor','nome_autor']
+        fields = ['id', 'titulo', 'descricao', 'data_pub', 'autor','nome_autor', 'autor_email']
 
 #Classe meta específica o modelo a ser usado e os campos a serem incluídos 
 
@@ -31,7 +32,11 @@ class ArtigoSerializer(serializers.ModelSerializer):
         #Primeiro desempacotamos os dados validados da solicitação
         #E criamos um novo objeto "Autor", com base nos dados validados no objeto autor
         autor_data=validated_data.pop('autor')
-        autor, created = Autor.objects.get_or_create(email=autor_data['email'], defaults=autor_data)
+        email = autor_data.get('email', None)
+        if email:
+            autor, created = Autor.objects.get_or_create(email = email, defaults = autor_data)
+        else:
+            autor = Autor.objects.create(**autor_data)
 
 
         #Em seguida, criamos um novo objeto "Artigo" com base no objeto "Autor"
