@@ -8,7 +8,7 @@ from django.db import models
 class Autor(models.Model):
     '''Classe de modelo com os campos de um autor de um artigo.'''
     nome = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(blank=True)
     imagem = models.ImageField(upload_to='autores/', null=True, blank=True)
 
 
