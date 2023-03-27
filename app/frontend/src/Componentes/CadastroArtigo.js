@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import './CadastroArtigo.css';
 
@@ -5,6 +6,7 @@ function CadastroArtigo() {
   const [titulo, setTitulo] = useState('');
   const [descricao, setDescricao] = useState('');
   const [nomeAutor, setNomeAutor] = useState('');
+  const [emailAutor, setEmailAutor] = useState('');
 
   function handleTituloChange(event) {
     setTitulo(event.target.value);
@@ -18,9 +20,27 @@ function CadastroArtigo() {
     setNomeAutor(event.target.value);
   }
 
+  function handleEmailAutorChange(event) {
+    setEmailAutor(event.target.value);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
-    // Aqui você pode adicionar a lógica para enviar os dados do artigo para o backend
+    const data = {
+      titulo: titulo,
+      descricao: descricao,
+      nome_autor: nomeAutor,
+      email_autor: emailAutor,
+    };
+    axios.post('https://8000-ruanfranklin-jornal-ltpeils3gbd.ws-us92.gitpod.io/api/artigos/', data)
+      .then(response => {
+        console.log(response);
+        alert('Artigo salvo com sucesso!');
+      })
+      .catch(error => {
+        console.error(error);
+        alert('Erro ao salvar o artigo!');
+      });
   }
 
   return (
@@ -38,6 +58,10 @@ function CadastroArtigo() {
         <div className="form-group">
           <label htmlFor="nomeAutor">Nome do Autor:</label>
           <input type="text" id="nomeAutor" value={nomeAutor} onChange={handleNomeAutorChange} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="emailAutor">Email do Autor:</label>
+          <input type="email" id="emailAutor" value={emailAutor} onChange={handleEmailAutorChange} />
         </div>
         <button type="submit" className="btn-salvar">Salvar</button>
       </form>
