@@ -147,3 +147,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#CSRF TOKEN
+CSRF_TRUSTED_ORIGINS = ['https://8000-ruanfranklin-jornal-ltpeils3gbd.ws-us93.gitpod.io']
