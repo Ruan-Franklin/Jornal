@@ -1,11 +1,17 @@
 from rest_framework import viewsets
 from rest_framework import status
 from rest_framework.response import Response
+from django.contrib.auth.decorators import user_passes_test
 from .models import Autor, Artigo
 from .serializers import AutorSerializer, ArtigoSerializer
+
 '''
 Este arquivo inclui dois ViewSets, um para cada modelo. O AutorViewSet lida com todas as operações para o modelo Autor e o ArtigoViewSet lida com todas as operações para o modelo Artigo. O atributo queryset define o queryset padrão para o ViewSet, que são todas as instâncias do modelo associado. O atributo serializer_class define o serializador a ser usado com o ViewSet. Observe que os serializadores não são definidos neste arquivo, eles precisam ser importados de um arquivo serializers.py separado.
 '''
+
+def is_editor_chefe(user):
+    return user.groups.filter(name='Editor-chefe').exists()
+
 
 class AutorViewSet(viewsets.ModelViewSet):
     '''Classe para lidar com operações para o modelo de Autor'''
@@ -48,5 +54,8 @@ class ArtigoViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
+    
+    @user_passes_test(is_editor_chefe)
+    def destroy(self,request, args, **kwargs):
+        return super().destroy(request, args, **kwargs)
 
