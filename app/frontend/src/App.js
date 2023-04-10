@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Modal from './Componentes/Modal';
 import CadastroArtigo from './Componentes/CadastroArtigo';
 import ListagemArtigos from './Componentes/ListagemArtigos';
+import Login from './Componentes/Login'
 import './index.css';
 
 function App() {
@@ -34,6 +35,15 @@ function App() {
                 </button>
               </Link>
             </li>
+            <li>
+              <Link to="/login">
+                <button className="btn-nav">
+                 <span className="material-icons">person</span>
+                 <span> Fazer Login </span>
+                </button>
+              </Link>
+
+            </li>
           </ul>
           <div className="menu-image">
             <img src={process.env.PUBLIC_URL + '/dark-mode-black-late-night-work-inspiration.png'} alt="Notebook" />
@@ -44,6 +54,7 @@ function App() {
           <Route path="/" element={<Modal />} />
           <Route path="/cadastro" element={<CadastroArtigo />} />
           <Route path="/artigos" element={<ListagemArtigos />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </BrowserRouter>
